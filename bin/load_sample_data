@@ -1,0 +1,32 @@
+#!/usr/bin/env node -r esm
+
+import mongoose from 'mongoose';
+import UserFixtures from '../test/fixtures/UserFixtures';
+import ConditionFixtures from '../test/fixtures/ConditionFixtures';
+import CaseFixtures from '../test/fixtures/CaseFixtures';
+
+// Set up mongoose connection
+const devDbUri = 'mongodb://localhost:27017/doctor-case-label';
+const mongoDB = process.env.MONGODB_URI || devDbUri;
+
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+async function loadSampleData() {
+  await Promise.all([
+    UserFixtures.dropFixtures(),
+    ConditionFixtures.dropFixtures(),
+    CaseFixtures.dropFixtures(),
+  ]);
+  await Promise.all([
+    UserFixtures.addFixtures(),
+    ConditionFixtures.addFixtures(),
+    CaseFixtures.addFixtures(),
+  ]);
+
+  console.log('Done!');
+}
+
+loadSampleData();

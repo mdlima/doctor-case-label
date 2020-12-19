@@ -1,0 +1,49 @@
+{
+  "name": "doctor-case-label",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node -r esm ./bin/www",
+    "test": "node -r esm node_modules/.bin/mocha \"./test/**/*.js\"",
+    "testwatch": "node -r esm node_modules/.bin/mocha --growl -w --reporter min \"./test/**/*.js\""
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "esm": "^3.2.25",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.10.13",
+    "morgan": "~1.9.1",
+    "pug": "3.0.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.8",
+    "@types/http-errors": "^1.8.0",
+    "@types/morgan": "^1.9.2",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.2.1",
+    "mongodb-memory-server": "^6.9.2",
+    "node-mocks-http": "^1.9.0",
+    "should": "^13.2.3"
+  },
+  "description": "Web app for reviewing and labeling EHRs.",
+  "main": "bin/www",
+  "module": "bin/main.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdlima/doctor-case-label.git"
+  },
+  "author": "Marcio Lima",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mdlima/doctor-case-label/issues"
+  },
+  "homepage": "https://github.com/mdlima/doctor-case-label#readme"
+}
